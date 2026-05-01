@@ -6,7 +6,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "ARCHIMA — The Soul is Sacrificial",
+    default: "ARCHIMA",
     template: "%s | ARCHIMA",
   },
   description:
@@ -33,7 +33,6 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full">
       <head>
-        {/* Preconnect for Google Fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
@@ -42,17 +41,27 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col bg-[#0f0519] text-[#FAFAFA] antialiased">
-        {/* Persistent site chrome */}
         <Navbar />
 
-        {/* Page content */}
         <main className="flex-1 flex flex-col">{children}</main>
 
-        {/* Footer placeholder (to be implemented later) */}
-        <footer className="border-t border-[rgba(115,53,166,0.3)] mt-auto">
+        <footer className="relative border-t border-[rgba(115,53,166,0.3)] mt-auto overflow-hidden">
+          {/* Fade-to-void on the left edge */}
+          <span
+            aria-hidden
+            className="pointer-events-none absolute left-0 top-0 bottom-0 w-16 z-10
+                       bg-gradient-to-r from-[#0f0519] to-transparent"
+          />
+          {/* Fade-to-void on the right edge */}
+          <span
+            aria-hidden
+            className="pointer-events-none absolute right-0 top-0 bottom-0 w-16 z-10
+                       bg-gradient-to-l from-[#0f0519] to-transparent"
+          />
+
           <div className="max-w-7xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
             <span className="font-mono text-xs text-[#C4B5FD] tracking-widest uppercase">
-              [ ARCHIMA ] — EST. 2025
+              Copyright © 2026 ARCHIMA, All Rights Reserved.
             </span>
             <span className="font-mono text-xs text-[rgba(250,250,250,0.3)] tracking-wide">
               The Soul is Sacrificial.
@@ -66,3 +75,5 @@ export default function RootLayout({
     </html>
   );
 }
+
+
